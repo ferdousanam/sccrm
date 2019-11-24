@@ -21,6 +21,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::resource('user', 'UsersController');
     Route::resource('user-type', 'UserTypesController');
     Route::resource('user-priority-level', 'UserPriorityLevelController');
+
+    // Custom
+    Route::resource('students', 'StudentController');
+
     // User Routes only auth permission
     Route::group(['middleware' => ['auth']], function () {
         // Avatar Changing Routes

@@ -1,6 +1,6 @@
-<a href="{{ route('main-menu.edit', $id) }}" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
-  <i class="la la-edit"></i>
+<a href="{{ route('main-menu.edit', $id) }}" class="btn btn-xs btn-primary" title="View">
+  <i class="fa fa-pencil-square-o lg"></i>
 </a>
-<button type="button" class="btn btn-sm btn-clean btn-icon btn-icon-md delete-button" data-toggle="modal" data-target="#delete-modal" data-id="{{ $id }}">
+<button type="button" class="btn btn-xs btn-danger delete-button" data-toggle="modal" data-target="#delete-modal" data-id="{{ $id }}">
   <i class="fa fa-trash lg"></i>
 </button>

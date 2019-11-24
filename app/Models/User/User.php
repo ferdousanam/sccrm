@@ -46,4 +46,8 @@ class User extends Authenticatable
   public function profile(){
       return $this->hasOne(Profile::class);
   }
+
+    public function user_level(){
+        return $this->belongsTo('\App\AdminModel\Priority', 'user_level', 'id');
+    }
 }

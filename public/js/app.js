@@ -11215,10 +11215,11 @@ __webpack_require__(/*! ./custom */ "./resources/js/custom.js");
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(".custom-file-input-anam").on("change", function () {
-  var fileName = $(this).val().split("\\").pop();
-  $(this).siblings(".custom-file-label").addClass("selected").text(fileName);
-});
+// $(".custom-file-input-anam").on("change", function() {
+//     var fileName = $(this).val().split("\\").pop();
+//     $(this).siblings(".custom-file-label").addClass("selected").text(fileName);
+// });
+$('.chosen').chosen();
 
 /***/ }),
 
@@ -11267,8 +11268,8 @@ toastr.options = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\xampp\htdocs\office\laravel6\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\xampp\htdocs\office\laravel6\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\office\sccrm2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\office\sccrm2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

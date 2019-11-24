@@ -1,22 +1,22 @@
 <style>
   .priority-menus > ul {
-    padding: 0;
+    padding: 10px;
   }
 
   ul {
     list-style: none;
   }
 
-  ul .col-sm-12 {
-    margin: 0;
-    padding: 0;
-  }
+  /*ul .col-sm-12 {*/
+  /*  margin: 0;*/
+  /*  padding: 0;*/
+  /*}*/
 
   ul .col-sm-12 > label {
     display: block;
     color: #fff;
     background-color: #337ab7;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     padding-top: 7px;
     padding-bottom: 7px;
   }
@@ -26,9 +26,16 @@
   }
 
   #appmodule_view {
-    border: 1px solid #e2d7d7;
-    display: block;
+    /*border: 1px solid #e2d7d7;*/
+    /*display: block;*/
   }
+
+  .priority-menus input[type=checkbox], .priority-menus input[type=radio] {
+    margin: 4px 10px 0;
+    margin-top: 1px\9;
+    line-height: normal;
+  }
+
 </style>
 <div class="priority-menus">
   {!! generate_priority_menus($id) !!}

@@ -45,7 +45,7 @@ class UsersDataTable extends DataTable {
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(User $model) {
-        return $model->newQuery();
+        return $model::with('user_level');
     }
 
     /**
@@ -113,7 +113,8 @@ class UsersDataTable extends DataTable {
         return [
             Column::make('name')->footer('Full Name'),
             Column::make('email')->footer('Email'),
-            Column::make('photo')->footer('Photo')->searchable(false)->orderable(false)->addClass('text-center'),
+//            Column::make('photo')->footer('Photo')->searchable(false)->orderable(false)->addClass('text-center'),
+            Column::make('user_level.priority_name')->title('Priority Role')->footer('Priority Role')->addClass('text-center'),
             Column::make('status')->footer('Status')->addClass('text-center'),
             Column::computed('action')
                 ->exportable(false)

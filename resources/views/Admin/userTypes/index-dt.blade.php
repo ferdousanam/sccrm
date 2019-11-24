@@ -9,25 +9,79 @@
 @section('page_tagline', '')
 
 @section('content')
-  @include('Admin.components.delete-modal')
-  @include('Admin.msg.message')
-  <div class="kt-portlet kt-portlet--mobile">
-    <div class="kt-portlet__head kt-portlet__head--lg">
-      <div class="kt-portlet__head-label">
-        <span class="kt-portlet__head-icon">
-          <i class="kt-font-brand flaticon2-line-chart"></i>
-        </span>
-        <h3 class="kt-portlet__head-title">
-          User Types List
-        </h3>
+  <div class="row">
+    <div class="col-md-12">
+    @include('Admin.components.delete-modal')
+    @include('Admin.msg.message')
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+      <div class="portlet light bordered">
+
+        <div class="portlet-title">
+          <div class="caption font-dark">
+            <i class="icon-settings font-dark"></i>
+            <span class="caption-subject bold uppercase">User Types List </span>
+          </div>
+
+          <div class="col-md-6"><p id="confirm_msg"></p></div>
+            <?php /*?>
+          <div class="actions">
+
+            <div class="btn-group">
+              <a class="btn purple btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
+                <i class="fa fa-list"></i>
+                <span> Options </span>
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu" id="sample_3_tools">
+                <li>
+                  <a onclick="return Enable();"><i class="icon-pencil"></i> Enable</a>
+                </li>
+                <li>
+                  <a onclick="return Disable();"><i class="icon-trash"></i> Disable</a>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="btn-group">
+              <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
+                <i class="fa fa-gears"></i>
+                <span> Tools </span>
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu pull-right" id="sample_3_tools">
+                <li>
+                  <a href="javascript:;" data-action="0" class="tool-action">
+                    <i class="icon-printer"></i> Print</a>
+                </li>
+
+                <li>
+                  <a href="javascript:;" data-action="2" class="tool-action">
+                    <i class="icon-doc"></i> PDF</a>
+                </li>
+                <li>
+                  <a href="javascript:;" data-action="3" class="tool-action">
+                    <i class="icon-paper-clip"></i> Excel</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <?php */ ?>
+          <div class="tools"></div>
+        </div>
+        <div class="portlet-body">
+          <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{URL::to('')}}" id="data_form">
+          {{ csrf_field() }}
+
+
+          <!--begin: Datatable -->
+          {!! $dataTable->table(['class' => 'table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline'], true) !!}
+
+          <!--end: Datatable -->
+
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="kt-portlet__body">
-
-      <!--begin: Datatable -->
-    {!! $dataTable->table(['class' => 'table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline'], true) !!}
-
-    <!--end: Datatable -->
     </div>
   </div>
 @endsection
@@ -36,8 +90,10 @@
   @include('Admin.scripts.delete')
   <script type="text/javascript">
       $(document).ready(function () {
-          $('#user-types-mm').addClass('kt-menu__item--submenu kt-menu__item--open kt-menu__item--here');
-          $('#user-types-sm').addClass('kt-menu__item--active');
+          $('#people-mm').addClass('open');
+          $('#people-mm>ul').css('display', 'block');
+          $('#people-mm>>.arrow').addClass('open');
+          $('#user-types-sm').addClass('active');
       });
   </script>
   <!-- Datatables -->

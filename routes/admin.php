@@ -15,12 +15,12 @@
 Route::group(['middleware' => 'auth:admin'], function () {
     // Super User Routes
     Route::group(['middleware' => ['CheckSuperUser']], function () {
-        Route::resource('menu', 'MenuController');
-        Route::resource('user', 'UsersController');
-        Route::resource('user-type', 'UserTypesController');
-        Route::resource('user-priority-level', 'UserPriorityLevelController');
-    });
 
+    });
+    Route::resource('menu', 'MenuController');
+    Route::resource('user', 'UsersController');
+    Route::resource('user-type', 'UserTypesController');
+    Route::resource('user-priority-level', 'UserPriorityLevelController');
     // User Routes only auth permission
     Route::group(['middleware' => ['auth']], function () {
         // Avatar Changing Routes

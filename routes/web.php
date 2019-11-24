@@ -10,11 +10,10 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect(route('dashboard.index'));
-//    return view('welcome');
+Route::get('client-congrats', 'FrontEndCon\HomeController@congrats')->name('client-congrats');
+Route::group(['as' => 'user.'], function () {
+    Route::resource('/', 'FrontEndCon\HomeController');
 });
-
 // Turned off Register Routes
 Auth::routes([
     'register' => false, // Registration Routes...

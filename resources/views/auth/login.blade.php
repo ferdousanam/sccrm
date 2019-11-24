@@ -16,16 +16,19 @@
   <!--end::Fonts -->
 
   <!--begin::Global Theme Styles(used by all pages) -->
-  <link href="{{asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css"/>
-  <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
+  <link href="{{asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+
+  <link href="{{asset('assets/pages/css/login-5.min.css')}}" rel="stylesheet" type="text/css" />
 
   <!--end::Global Theme Styles -->
 
   <!--begin::Layout Skins(used by all pages) -->
-  <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css"/>
+{{--  <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css"/>--}}
 
   <!--end::Layout Skins -->
-  <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}"/>
+  <link rel="shortcut icon" href="{{asset('uploads/project-info')}}/{{project()->project_icon}}" />
 
 @stack('css')
 
@@ -34,181 +37,142 @@
 <!-- end::Head -->
 
 <!-- begin::Body -->
-<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+<body class="login">
+<div class="user-login-5">
+  <div class="row bs-reset">
+    <div class="col-md-6 bs-reset mt-login-5-bsfix">
+      <div class="login-bg" style="background: #821745; position: relative; z-index: 0;">
+        <div style="position:absolute; top:30%; left:2.5em;">
+          <img class="login-logo" src="{{ asset('uploads/project-info/'.project()->company_logo) }}">
+          <div class="login-content" style="margin-top: 80px;margin-left: 35px">
+            <h1 style="color:#fff; font-size:250%;">{{project()->app_name}}, {{project()->company_name}}</h1>
+            <p style="color:#fff; font-size:150%; font-weight:200;">{{project()->project_details}}</p>
+          </div>
+        </div>
 
 
-<!-- begin:: Page -->
-<div class="kt-grid kt-grid--ver kt-grid--root kt-page">
-  <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v6 kt-login--signin" id="kt_login">
-    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
-      <div class="kt-grid__item kt-grid__item--fluid kt-grid__item--center kt-grid kt-grid--ver kt-login__content" style="background-image: url('{{ asset('uploads/project-info/login-bg.jpg') }}');">
-        <div class="kt-login__section">
-          <div class="kt-login__block">
-            <h3 class="kt-login__title">{{ project()->company_name }}</h3>
-            <div class="kt-login__desc">
+        <div class="row" style="vertical-align: middle; height: 500px">
 
+        </div>
+        <div class="row " style="position:absolute; bottom:0; padding-bottom:20px; display:block; width:100%;">
+          <div class="col-md-12">
+            <div class="col-md-3 frontbttomlinks" style="text-align:center;">
+              <strong><a href="https://roopokar.com" target="_blank" class="text-warning">Roopokar</a></strong>
             </div>
+            <div class="col-md-3 frontbttomlinks" style="text-align:center;" >
+              <strong><a href="https://roopokar.com" target="_blank" class="text-warning">Support</a></strong>
+            </div>
+            <div class="col-md-3 frontbttomlinks" style="text-align:center;">
+              <strong><a href="https://roopokar.com" target="_blank" class="text-warning">Modules</a></strong>
+            </div>
+            <div class="col-md-3 frontbttomlinks" style="text-align:center;">
+              <strong><a href="https://roopokar.com" target="_blank" class="text-warning">Billing</a></strong>
+            </div>
+            <!--<div class="col-md-2 text-left">-->
+          <!--    <strong><a href="{{asset('join-us')}}" class="text-warning">Join Us</a></strong>-->
+            <!--</div>-->
+            <!--<div class="col-md-2 text-left">-->
+          <!--    <strong><a href="{{asset('careers')}}" class="text-warning">Careers</a></strong>-->
+            <!--</div>-->
           </div>
         </div>
       </div>
-
-      <div class="kt-grid__item  kt-grid__item--order-tablet-and-mobile-2  kt-grid kt-grid--hor kt-login__aside">
-        <div class="kt-login__wrapper">
-          <div class="kt-login__container">
-            <div class="kt-login__body">
-              <div class="kt-login__logo">
-                <a href="#">
-                  <img src="{{ asset('uploads/project-info/'.project()->company_logo) }}">
+    </div>
+    <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
+      <div class="login-content">
+        <div class="col-md-10 col-md-offset-1">
+          <form action="{{ route('login') }}" class="login-form" method="post">
+            {{ csrf_field() }}
+            <div class="row">
+              <div class="col-xs-12">
+                <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="email" required style="border: 1px solid #821745"/> </div>
+              <div class="col-xs-12">
+                <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required style="border: 1px solid #821745"/> </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-8 text-right">
+                <button class="btn pull-left" style="background: #821745;color:white" type="submit">Sign In</button>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-12 text-left">
+                <h4 style="color:#801842;" class="text-primary">Demo Credential</h4>
+                <hr style="margin-top:8px; padding:0px">
+                <strong class="text-primary" style="font-size: 14px; color:#000; margin-top:5px;" >
+                  ID : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;erp@roopokar.com
+                  <br>
+                  Password :&nbsp;&nbsp; &nbsp;erp
+                </strong>
+                <hr>
+                <!--<h4 class="text-success">Department Head/Line Manager</h4>-->
+                <!--<hr style="margin:0px;padding:0px">-->
+                <!--<strong class="text-success" style="font-size: 12px">-->
+                <!--    ID : AD-0001-->
+                <!--    <br>-->
+                <!--    Password : 0001-->
+                <!--</strong>-->
+                <!--<hr>-->
+                <!--<h4 class="text-info">Employee</h4>-->
+                <!--<hr style="margin:0px;padding:0px">-->
+                <!--<strong class="text-info" style="font-size: 12px">-->
+                <!--    ID : AC-0016-->
+                <!--    <br>-->
+                <!--    Password : 0016-->
+                <!--</strong>-->
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-12 text-left">
+                @if(Session::has('error'))
+                  <strong style="background: white;color:red;font-size: 12px">{!!Session::get('error')!!}</strong>
+                @endif
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="login-footer">
+        <div class="row bs-reset">
+          <div class="col-xs-5 bs-reset">
+            <ul class="login-social">
+              <li>
+                <a href="https://www.facebook.com/roopokar/" target="_blank">
+                  <i class="icon-social-facebook"></i>
                 </a>
-              </div>
-
-              <div class="kt-login__signin">
-                <div class="kt-login__head">
-                  <h3 class="kt-login__title">Sign In</h3>
-                </div>
-                <div class="kt-login__form">
-                  <form class="kt-form" method="POST" action="{{ route('login') }}">
-                    @csrf
-
-                    <div class="form-group">
-                      <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email" name="email" id="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                      @error('email')
-                      <span class="form-text text-danger" role="alert">
-                      <strong>{{ $message }}</strong>
-                      </span>
-                      @enderror
-                    </div>
-                    <div class="form-group">
-                      <input class="form-control form-control-last @error('password') is-invalid @enderror" type="password" placeholder="Password" name="password" id="password" value="{{ old('password') }}" required>
-                      @error('password')
-                      <span class="form-text text-danger" role="alert">
-                      <strong>{{ $message }}</strong>
-                      </span>
-                      @enderror
-                    </div>
-                    <div class="kt-login__extra">
-                      <label class="kt-checkbox">
-                        <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                        <span></span>
-                      </label>
-                      <a href="javascript:;" id="kt_login_forgot">Forget Password ?</a>
-                    </div>
-                    <div class="kt-login__actions">
-                      <button id="submit" type="submit" class="btn btn-brand btn-pill btn-elevate">{{ __('Login') }}</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-
-              @if (Route::has('register'))
-                <div class="kt-login__signup">
-                  <div class="kt-login__head">
-                    <h3 class="kt-login__title">Sign Up</h3>
-                    <div class="kt-login__desc">Enter your details to create your account:</div>
-                  </div>
-                  <div class="kt-login__form">
-                    <form class="kt-form" action="">
-                      <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Fullname" name="fullname">
-                      </div>
-                      <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
-                      </div>
-                      <div class="form-group">
-                        <input class="form-control" type="password" placeholder="Password" name="password">
-                      </div>
-                      <div class="form-group">
-                        <input class="form-control form-control-last" type="password" placeholder="Confirm Password" name="rpassword">
-                      </div>
-                      <div class="kt-login__extra">
-                        <label class="kt-checkbox">
-                          <input type="checkbox" name="agree"> I Agree the <a href="#">terms and conditions</a>.
-                          <span></span>
-                        </label>
-                      </div>
-                      <div class="kt-login__actions">
-                        <button id="kt_login_signup_submit" class="btn btn-brand btn-pill btn-elevate">Sign Up</button>
-                        <button id="kt_login_signup_cancel" class="btn btn-outline-brand btn-pill">Cancel</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              @endif
-
-              <div class="kt-login__forgot">
-                <div class="kt-login__head">
-                  <h3 class="kt-login__title">Forgotten Password ?</h3>
-                  <div class="kt-login__desc">Enter your email to reset your password:</div>
-                </div>
-                <div class="kt-login__form">
-                  <form class="kt-form" action="">
-                    <div class="form-group">
-                      <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocomplete="off">
-                    </div>
-                    <div class="kt-login__actions">
-                      <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill btn-elevate">Request</button>
-                      <button id="kt_login_forgot_cancel" class="btn btn-outline-brand btn-pill">Cancel</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="icon-social-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <i class="icon-social-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-7 bs-reset">
+            <div class="login-copyright text-right">
+              <p>Copyright &copy; Roopokar 2018-2019</p>
             </div>
           </div>
-          @if (Route::has('register'))
-            <div class="kt-login__account">
-            <span class="kt-login__account-msg">
-                Don't have an account yet ?
-            </span>&nbsp;&nbsp;
-              <a href="{{ route('register') }}" id="kt_login_signup" class="kt-login__account-link">{{ __('Register') }}</a>
-            </div>
-          @endif
-
         </div>
       </div>
-
     </div>
   </div>
 </div>
-<!-- end:: Page -->
 
+<!-- BEGIN CORE PLUGINS -->
+<script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
-<!-- begin::Global Config(global config for global JS sciprts) -->
-<script>
-    var KTAppOptions = {
-        "colors": {
-            "state": {
-                "brand": "#2c77f4",
-                "light": "#ffffff",
-                "dark": "#282a3c",
-                "primary": "#5867dd",
-                "success": "#34bfa3",
-                "info": "#36a3f7",
-                "warning": "#ffb822",
-                "danger": "#fd3995"
-            },
-            "base": {
-                "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
-                "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
-            }
-        }
-    };
-</script>
+<script src="{{asset('assets/pages/scripts/login-5.min.js')}}" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
 
-<!-- end::Global Config -->
-
-<!--begin::Global Theme Bundle(used by all pages) -->
-<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/js/scripts.bundle.js')}}" type="text/javascript"></script>
-
-<!--end::Global Theme Bundle -->
-
-<!--begin::Page Vendors(used by this page) -->
-
-<!--end::Page Vendors -->
-
-<script src="{{asset('assets/js/pages/custom/login/login-general.js')}}" type="text/javascript"></script>
-<script src="{{asset('js/app.js')}}" type="text/javascript"></script>
 <!--begin::Page Scripts(used by this page) -->
 @stack('scripts')
 

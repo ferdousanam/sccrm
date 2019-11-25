@@ -61,7 +61,7 @@ class StudentsDataTable extends DataTable
             ->setTableId('students-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->dom("fltr<'row'<'col-sm-12'tr>> <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>")
+            ->dom("fltrip")
             ->orderBy(1, "ASC")
             ->parameters(array(
                 'processing' => 'Please wait...',
@@ -85,7 +85,7 @@ class StudentsDataTable extends DataTable
                     this.api().columns($need_input_columns).every(function (colIdx) {
                         var column = this;
                         var title = $('tfoot').find('th').eq(colIdx).text();
-                        console.log($(column.footer()).empty());
+//                        console.log($(column.footer()).empty());
                         var input = document.createElement('input');
                         // input.setAttribute('type', 'text');
                         input.placeholder = title;

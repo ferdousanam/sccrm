@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             switch ($guard) {
                 case 'admin':
-                    return redirect('/dashboard');
+                    return redirect(route('dashboard.index'));
                     break;
                 default:
                     return redirect('/');

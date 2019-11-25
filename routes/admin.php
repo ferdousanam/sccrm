@@ -12,7 +12,7 @@
 |
 */
 
-Route::group(['middleware' => 'auth:admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
     // Super User Routes
     Route::group(['middleware' => ['CheckSuperUser']], function () {
 

@@ -100,7 +100,7 @@
       });
   </script>
   <!-- Datatables -->
-  <script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>
+{{--  <script src="{{asset('assets/plugins/custom/datatables/datatables.bundle.js')}}"></script>--}}
   <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}" type="text/javascript"></script>
   {!! $dataTable->scripts() !!}
 @endpush

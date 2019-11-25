@@ -25,7 +25,7 @@
       </a>
     </li>
     <li class="nav-item start" id="priority-sm">
-      <a href="{{ route('user-type.create') }}" class="nav-link ">
+      <a href="{{ route('admin.user-type.create') }}" class="nav-link ">
         <i class="icon-bar-chart"></i>
         <span class="title">Priority</span>
       </a>

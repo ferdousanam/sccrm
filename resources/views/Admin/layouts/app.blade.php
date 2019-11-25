@@ -149,7 +149,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-default">
               <li>
-                <a href="{{ route('update-password') }}"> <i class="fa fa-pencil"></i> Change Password</a>
+                <a href="{{ route('admin.update-password') }}"> <i class="fa fa-pencil"></i> Change Password</a>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   <i class="icon-key"></i> Log Out</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

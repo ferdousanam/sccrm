@@ -32,7 +32,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -54,7 +54,7 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -65,34 +65,42 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $user_type = Student::find($id);
-        return view('Admin.students.edit', compact('user_type'));
+        $student = Student::find($id);
+        return view('Admin.students.edit', compact('student'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'priority_name' => 'required',
-            'priority_status' => 'required',
+            'full_name' => 'required',
+            'mobile_no' => 'required',
+            'email' => 'required',
+            'last_education' => 'required',
+            'last_education_result' => 'required',
+            'passing_year' => 'required',
+            'interested_in' => 'required',
+            'ielts_score' => 'required',
+            'remarks' => 'required',
+            'status' => 'required',
         ]);
         $data = $request->all();
 
-        $priority = Student::find($id);
-        $update = $priority->update($data);
+        $student = Student::find($id);
+        $update = $student->update($data);
         if ($update) {
-            session()->flash('success', 'User Type Updated Successfully');
+            session()->flash('success', 'Student Updated Successfully');
         } else {
             session()->flash('error', 'Something Went Wrong!');
         }
@@ -102,7 +110,7 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
